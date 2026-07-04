@@ -2,7 +2,7 @@
 
 The **Tower-of-Hanoi** is a classic mathematical puzzle, and this C++ command-line application elegantly solves it while providing a dynamic visual representation of the moving disks on the Windows console. It calculates the optimal moves using an iterative algorithm and custom stack data structures, visually tracking the puzzle state in real-time.
 
-![Tower of Hanoi Visualization](Tower_of_Hanoi%20(1).gif)
+![Tower of Hanoi Visualization](demo.gif)
 
 ## Table of Contents
 
