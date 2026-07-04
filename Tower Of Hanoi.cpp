@@ -151,19 +151,60 @@ int main() {
 		for (int i = 0; i < 3; ++i) {
 			if (!bars[i].isEmpty() && bars[i].top() != lastMovedDiskNo) {
 				int disk = bars[i].top();
+
 				disk % 2 == 0 ? i == 2 ? barNo = 0 : barNo = i + 1 : i == 0 ? barNo = 2 : barNo = i - 1;
+
 				if (bars[barNo].isEmpty() || bars[barNo].top() > disk) {
-					rendering(bars[i].top(), noOfRings, i, barNo, bars[i].getSize(), bars[barNo].getSize());
+
+					rendering(
+						bars[i].top(),
+						noOfRings,
+						i,
+						barNo,
+						bars[i].getSize(),
+						bars[barNo].getSize()
+					);
+
 					bars[i].pop();
 					bars[barNo].push(disk);
+
 					lastMovedDiskNo = disk;
+
+					++countMoves;
+
+					system("cls");
+
+					welcome();
+
+					cout << "\n\n\n\n\n";
+
+					displayTower(bars[0], 4);
+
+					for (int j = 0; j < noOfRings; ++j)
+						cout << "\033[F";
+
+					displayTower(bars[1], 5);
+
+					for (int j = 0; j < noOfRings; ++j)
+						cout << "\033[F";
+
+					displayTower(bars[2], 6);
+
+					cout << "\n\t\t\t  -----------------------------------\n";
+					cout << "\t\t\t\t\tMoves: " << countMoves << endl;
+
+					Sleep(300);
+
+					for (int j = 0; j < noOfRings + 3; ++j)
+						cout << "\033[F";
+
 					break;
 				}
 			}
-
 		}
-		++countMoves;
-		if (bars[barNo].isFull()) isShifted = true;
+
+		if (bars[barNo].isFull())
+			isShifted = true;
 	}
 	cout << "\n\n\n\n\n\n\n\n\n\n";
 	return 0;
